@@ -10,11 +10,12 @@ app.use(cors())
 app.locals.questions = questionData;
 app.locals.incorrect = incorrectData;
 
-app.set('port', process.env.PORT || 3001);
+// app.set('port', process.env.PORT || 3001);
 app.locals.title = 'project+dendrology API';
 
-app.listen(app.get('port'), () => {
-    console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.warn(`App listening on http://localhost:${PORT}`);
 });
 
 app.get('/', (request, response) => {
